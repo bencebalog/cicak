@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="currentWidth">Választott-Téma</title>
+</head>
+<style>
+
+    body {
+        background-color: burlywood;
+    }
+
+    main {
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tart {
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .tart h2 {
+        margin: 5px 0;
+    }
+
+    .tart img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    #j {
+        display: none;
+    }
+
+    @media (min-width: 700px) {
+        main {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        #b, #k {
+            width: calc(50% - 5px);
+        }
+    }
+
+    @media (min-width: 1400px) {
+        #b, #k, #j {
+            width: calc(33.33% - 10px);
+            margin-right: 10px;
+        }
+
+        #j {
+            display: block;
+            margin-right: 0;
+        }
+
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .image-grid img {
+            width: calc(50% - 10px);
+        }
+    }
+
+</style>
+<script>
+
+    function updateWidthDisplay() {
+        const widthDisplay = document.getElementById('currentWidth');
+        widthDisplay.textContent = `Választott-Téma (${document.documentElement.clientWidth}px)`;
+    }
+
+    window.addEventListener('resize', updateWidthDisplay);
+    window.addEventListener('DOMContentLoaded', () => {updateWidthDisplay();});
+
+</script>
+<body>
+    <main>
+        <section class="tart" id="b">
+            <h2>Legújabb hírek</h2>
+            <img src="cat9.jpg">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum inventore aliquam fuga in quidem, provident iste suscipit nesciunt expedita assumenda ipsum voluptate doloremque error ab. Maiores quis doloribus animi unde?</p>
+            <img src="cat8.jpg">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta amet ducimus dignissimos assumenda officiis inventore deserunt vero iste mollitia! Velit eos voluptatum odio vel sed, voluptate praesentium iste voluptatem a?</p>
+        </section>
+        <section class="tart" id="k">
+            <h2>További hírek</h2>
+            <img src="cat7.jpg">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, fugiat nesciunt? Quod perferendis ex culpa? Minus dolorem dolorum consectetur, nobis quia consequatur unde debitis maxime ex quas rem exercitationem ratione?</p>
+            <img src="cat6.jpg">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae soluta illo assumenda impedit officia nostrum eaque natus itaque neque explicabo. Iste nostrum labore, ipsum aperiam esse fugiat saepe adipisci ullam.</p>
+        </section>
+        <section class="tart" id="j">
+            <h2>Képek</h2>
+            <div class="image-grid">
+                <img src="cat-icon.png">
+                <img src="cat1.jpg">
+                <img src="cat2.jpg">
+                <img src="cat3.jpg">
+                <img src="cat4.jpg">
+                <img src="cat5.jpg">
+            </div>
+        </section>
+    </main>
+</body>
+</html>
